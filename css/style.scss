@@ -1,0 +1,29 @@
+@import "base";
+
+
+#chart {
+  overflow-x: scroll;
+}
+
+.colourBarContainer {
+  display: flex;
+  justify-content: center;
+}
+.colourBar {
+  height: 15px;
+  width: 100%;
+  max-width: 350px;
+	margin-top: 45px;
+  margin-bottom: 5px;
+  background: linear-gradient(90deg, rgba(11,207,4,1) 0%, rgba(255,208,0,1) 50%, rgba(255,21,0,1) 100%);
+	border-radius: 5px;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.colourBarText {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}

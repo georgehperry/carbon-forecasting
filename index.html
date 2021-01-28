@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" crossorigin>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <title>Carbon forecasting</title>
+  </head>
+  <body>
+    <main>
+      <div class='container'>
+        <h1>Carbon forcasting</h1>
+        <h2>When is the best time to use electricity?</h2>
+        <p>The chart shows how much carbon is needed to produce electricity at different times of the day.</p>
+        <div class='colourBarContainer'>
+          <div class='colourBar'></div>
+        </div>
+        <div class='colourBarText'>
+          <div class='left'>
+            Best time
+          </div>
+          <div class='right'>
+            Worst time
+          </div>
+        </div>
+      </div>
+      <canvas id="chart"></canvas>
+    </main>
+  </body>
+</html>
