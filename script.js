@@ -5,18 +5,34 @@ let times = [];
 let forecast = [];
 let index = [];
 
-const request = new XMLHttpRequest();
-request.open(`GET`, `https://api.carbonintensity.org.uk/intensity/${currentDateTime}/fw24h`);
-request.send();
+//XML HTTP Request
+// const request = new XMLHttpRequest();
+// request.open(`GET`, `https://api.carbonintensity.org.uk/intensity/${currentDateTime}/fw24h`);
+// request.send();
 
-request.addEventListener('load', function() {
-  const apiData = JSON.parse(this.responseText).data;
-  console.log(apiData);
-  apiData.forEach(getForecastValue);
-  apiData.forEach(getForecastIndex);
+// const request = fetch(`https://api.carbonintensity.org.uk/intensity/${currentDateTime}/fw24h`);
+// console.log(`Request: ${request}`);
 
-  createChart();
-});
+// request.addEventListener('load', function() {
+//   const apiData = JSON.parse(this.responseText).data;
+//   console.log(apiData);
+//   apiData.forEach(getForecastValue);
+//   apiData.forEach(getForecastIndex);
+
+//   createChart();
+// });
+
+//Fetch API call
+const getCarbonData = function() {
+  fetch(`https://api.carbonintensity.org.uk/intensity/${currentDateTime}/fw24h`)
+    .then((response) => response.json())
+    .then( function(data) {
+      data.data.forEach(getForecastValue);
+      data.data.forEach(getForecastIndex);
+
+      createChart();
+    });
+}
 
 function getForecastValue(item) {
   times.push(convertToTime(item['from']));
@@ -100,3 +116,5 @@ function bgGradient() {
 
   return gradient;
 }
+
+getCarbonData();
